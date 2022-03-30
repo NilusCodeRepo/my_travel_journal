@@ -1,23 +1,21 @@
 import logo from './logo.svg';
+import Navbar from './Components/Navbar';
+import Main from './Components/Main'
+import cardData from './Components/cardData'
 import './App.css';
 
 function App() {
+
+  const data=cardData.map(item=>{
+    return <Main
+    key={item.id}
+    {...item}
+    />
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      {data}
     </div>
   );
 }
